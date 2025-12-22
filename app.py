@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 
 # ==================================================
-# PAGE CONFIG (FIRST COMMAND)
+# PAGE CONFIG 
 # ==================================================
 st.set_page_config(
     page_title="Employee Attrition Predictor",
@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 # ==================================================
-# LOAD TRAINED MODEL (UNCHANGED)
+# LOAD TRAINED MODEL 
 # ==================================================
 file_path = r"G:\DS_Projects\.venv\Employee_Attrition\best_model.pkl"
 
@@ -20,7 +20,7 @@ with open(file_path, "rb") as f:
     pickle_model = pickle.load(f)
 
 # ==================================================
-# HEADER SECTION (DESIGN CHANGE)
+# HEADER SECTION 
 # ==================================================
 st.markdown(
     """
@@ -35,7 +35,7 @@ st.markdown(
 )
 
 # ==================================================
-# SIDEBAR – INPUT SECTION (DESIGN CHANGE)
+# SIDEBAR – INPUT SECTION 
 # ==================================================
 st.sidebar.header("🧾 Employee Details")
 
@@ -63,7 +63,7 @@ environment_satisfaction = st.sidebar.selectbox("Environment Satisfaction", [1, 
 work_life_balance = st.sidebar.selectbox("Work Life Balance", [1, 2, 3, 4])
 
 # ==================================================
-# MAIN PANEL – DATA PREVIEW (DESIGN)
+# MAIN PANEL – DATA PREVIEW 
 # ==================================================
 st.subheader("📋 Employee Profile Summary")
 
@@ -81,7 +81,7 @@ colC.metric("Years with Manager", years_with_curr_manager)
 st.markdown("---")
 
 # ==================================================
-# PREPARE INPUT DATA (UNCHANGED LOGIC)
+# PREPARE INPUT DATA 
 # ==================================================
 input = pd.DataFrame([{
     "Age": age,
@@ -114,7 +114,7 @@ input_encoded = input_encoded.reindex(
 )
 
 # ==================================================
-# PREDICTION SECTION (DESIGN ENHANCED)
+# PREDICTION SECTION 
 # ==================================================
 st.subheader("🔮 Attrition Prediction")
 
@@ -135,4 +135,5 @@ if st.button("🚀 Predict Attrition Risk"):
         - Proactively engage **managers and HR partners**
         """
     )
+
 
